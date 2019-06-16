@@ -12,6 +12,7 @@
         @include('layouts.header')
 
         @yield('hero')
+        @yield('page-title')
 
         <!--body content start-->
         <section class="body-content">
