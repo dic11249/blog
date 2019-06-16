@@ -17,7 +17,7 @@
 
                 <!--mega menu start-->
                 <ul class="menuzord-menu menuzord-right c-nav_s-standard">
-                    @php Log::info(request()->path()); @endphp
+                    {{-- @php Log::info(request()->path()); @endphp 在此可使用log查詢印出變數值debug --}}
                     <li class="@if(request()->is('/')) active @endif">
                         <a href="/">Home</a>
                     </li>
