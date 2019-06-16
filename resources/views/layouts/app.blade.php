@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    @include('layouts.preloader')
+    @include('layouts.preloader', ['overlay'=>(isset($overlay))? $overlay : null])
 
     <div class="wrapper">
 
