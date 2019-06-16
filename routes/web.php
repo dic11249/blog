@@ -23,7 +23,7 @@ Route::get('/about', function () {
 
 // 聯絡我們
 Route::get('/contact', function () {
-    return view('contace');
+    return view('contact');
 });
 
 // 文章列表首頁  view(資料夾)->posts(資料夾)->list(檔案)
