@@ -28,8 +28,7 @@ Route::get('/contact', function () {
 
 // 文章列表首頁  view(資料夾)->posts(資料夾)->list(檔案)
 Route::get('/posts', function () {
-    $posts = [1,2,3,4,5];
-    return view('posts.list', ['posts'=>$posts]);
+    return view('posts.list');
 });
 
 // 指定文章並帶入文章id  /posts/9487
