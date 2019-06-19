@@ -26,12 +26,32 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-// 文章列表首頁  view(資料夾)->posts(資料夾)->list(檔案)
-Route::get('/posts', function () {
-    return view('posts.list');
-});
+// Post routing
+// CRUD, 3 routing: create / edit / list
 
-// 指定文章並帶入文章id  /posts/9487
-Route::get('/posts/{id}', function ($id) {
-    return view('posts.show');
-});
+//Create
+Route::post('/posts','PostController@store');
+//CreateForm
+Route::get('/posts/create', 'PostController@create');
+//Read
+Route::get('/posts/{post}','PostController@show');
+//Update
+Route::put('/posts/{post}','PostController@update');
+//Delete
+Route::delete('/posts/{post}','PostController@destory');
+//UpdateForm
+Route::get('/posts/{post}/edit','PostController@edit');
+//list
+Route::get('/posts','PostController@index');
+
+
+
+// // 文章列表首頁  view(資料夾)->posts(資料夾)->list(檔案)
+// Route::get('/posts', function () {
+//     return view('posts.list');
+// });
+
+// // 指定文章並帶入文章id  /posts/9487
+// Route::get('/posts/{id}', function ($id) {
+//     return view('posts.show');
+// });
