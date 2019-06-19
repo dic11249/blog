@@ -29,6 +29,8 @@ Route::get('/contact', function () {
 // Post routing
 // CRUD, 3 routing: create / edit / list
 
+//admin view
+Route::get('/posts/admin','PostController@admin');
 //Create
 Route::post('/posts','PostController@store');
 //CreateForm
