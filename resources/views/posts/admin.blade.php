@@ -33,11 +33,28 @@
                     <span class="pull-right">
                         <a href="/posts/show/{{ $post->id }}" class="btn btn-default">View</a>
                         <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" onclick="deletePost({{ $post->id }})">Delete</button>
                     </span>
                 </li>
             @endforeach
         </ul>
     </div>
 </div>
+
+<form id="delete-form" method="POST" action="/posts/id">
+    <input type="hidden" name="_method" value="delete">
+    @csrf
+</form>
+@endsection
+
+@section('script')
+<script>
+let deletePost = function(id){
+    let result = confirm('是否確認刪除文章?');
+    if(result){
+        let actionUrl = '/posts/'+id;
+        $('#delete-form').attr('action', actionUrl).submit();
+    }
+};
+</script>
 @endsection
