@@ -35,6 +35,8 @@ Route::get('/posts/admin','PostController@admin');
 Route::post('/posts','PostController@store');
 //CreateForm
 Route::get('/posts/create', 'PostController@create');
+//show
+Route::get('posts/show/{post}', 'PostController@show');
 //Read
 Route::get('/posts/{post}','PostController@show');
 //Update
