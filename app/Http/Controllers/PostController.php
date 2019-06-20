@@ -68,7 +68,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('/posts.edit', ['post' => $post]);
     }
 
     /**
@@ -80,7 +80,10 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->fill($request->all());
+        $post->save();
+
+        return redirect('/posts/admin');
     }
 
     /**
