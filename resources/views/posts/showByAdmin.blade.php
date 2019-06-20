@@ -25,6 +25,12 @@
 <div class="page-content">
     <div class="container">
         <h1>{{ $post->title }}</h1>
+        <div class="clearfix">
+            <div class="toolbox pull-right">
+                <a href="" class="btn btn-primary">Edit</a>
+                <button class="btn btn-danger">Delete</button>
+            </div>
+        </div>
         <div class="content">
             {{ $post->content }}
         </div>
