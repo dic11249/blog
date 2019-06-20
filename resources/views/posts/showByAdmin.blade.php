@@ -27,7 +27,7 @@
         <h1>{{ $post->title }}</h1>
         <div class="clearfix">
             <div class="toolbox pull-right">
-                <a href="" class="btn btn-primary">Edit</a>
+                <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
                 <button class="btn btn-danger">Delete</button>
             </div>
         </div>
