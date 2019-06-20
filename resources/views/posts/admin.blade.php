@@ -28,7 +28,7 @@
 
         <div class="list-group">
             @foreach ($posts as $key => $post)
-            <a href="#" class="list-group-item list-group-item-action">
+        <a href="/posts/show/{{ $post->id }}" class="list-group-item list-group-item-action">
                 {{ $post->title }}
             </a>
             @endforeach
