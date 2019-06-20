@@ -42,7 +42,7 @@ Route::get('/posts/{post}','PostController@show');
 //Update
 Route::put('/posts/{post}','PostController@update');
 //Delete
-Route::delete('/posts/{post}','PostController@destory');
+Route::delete('/posts/{post}','PostController@destroy');
 //UpdateForm
 Route::get('/posts/{post}/edit','PostController@edit');
 //list
