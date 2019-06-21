@@ -41,7 +41,7 @@
                             <h4 class="text-uppercase"><a href="/posts/9527">{{ $post->title }}</a>
                             </h4>
                             <ul class="post-meta">
-                                <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
+                                <li><i class="fa fa-user"></i>posted by <a href="#">{{ $post->user->name }}</a>
                                 </li>
                                 <li><i class="fa fa-folder-open"></i> <a href="#">lifestyle</a>, <a href="#">travel</a>,
                                     <a href="#">fashion</a>
