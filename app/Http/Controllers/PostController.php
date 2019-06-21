@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -44,9 +45,10 @@ class PostController extends Controller
     {
         $post = new Post;
         $post->fill($request->all());
+        $post->user_id = Auth::id();
         $post->save();
 
-        return redirect('/posts');
+        return redirect('/posts/admin');
     }
 
     /**
