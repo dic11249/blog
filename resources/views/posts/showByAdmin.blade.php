@@ -28,7 +28,7 @@
         <div class="clearfix">
             <div class="toolbox pull-right">
                 <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
-                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-danger" onclick="deletePost({{ $post->id }})">Delete</button>
             </div>
         </div>
         <div class="content">

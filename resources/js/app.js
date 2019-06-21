@@ -37,3 +37,16 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+
+document.deletePost = function (id) {
+    let result = confirm('是否確認刪除文章?');
+    if (result) {
+        let actionUrl = '/posts/' + id;
+        //Ajax Delete
+        $.post(actionUrl, {
+            _method: 'delete'
+        }).done(function () {
+            location.href = '/posts/admin';
+        });
+    }
+};

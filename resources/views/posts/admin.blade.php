@@ -47,17 +47,3 @@
 </form> Http Delete--}}
 @endsection
 
-@section('script')
-<script>
-let deletePost = function(id){
-    let result = confirm('是否確認刪除文章?');
-    if(result){
-        let actionUrl = '/posts/'+id;
-        //Ajax Delete
-        $.post(actionUrl, {_method: 'delete'}).done(function(){
-            location.reload();
-        });
-    }
-};
-</script>
-@endsection

@@ -12778,6 +12778,20 @@ $.ajaxSetup({
   }
 });
 
+document.deletePost = function (id) {
+  var result = confirm('是否確認刪除文章?');
+
+  if (result) {
+    var actionUrl = '/posts/' + id; //Ajax Delete
+
+    $.post(actionUrl, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/posts/admin';
+    });
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/components/ExampleComponent.vue":
