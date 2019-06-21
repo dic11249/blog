@@ -29,25 +29,29 @@ Route::get('/contact', function () {
 // Post routing
 // CRUD, 3 routing: create / edit / list
 
-//admin view
-Route::get('/posts/admin','PostController@admin');
-//Create
-Route::post('/posts','PostController@store');
-//CreateForm
-Route::get('/posts/create', 'PostController@create');
-//show
-Route::get('posts/show/{post}', 'PostController@show');
-//Read
-Route::get('/posts/{post}','PostController@show');
-//Update
-Route::put('/posts/{post}','PostController@update');
-//Delete
-Route::delete('/posts/{post}','PostController@destroy');
-//UpdateForm
-Route::get('/posts/{post}/edit','PostController@edit');
+Route::group(['middleware' => ['auth']], function () {
+    //admin view
+    Route::get('/posts/admin', 'PostController@admin');
+    //CreateForm
+    Route::get('/posts/create', 'PostController@create');
+    //UpdateForm
+    Route::get('/posts/{post}/edit', 'PostController@edit');
+
+    //Create
+    Route::post('/posts', 'PostController@store');
+    //show
+    Route::get('posts/show/{post}', 'PostController@show');
+    //Update
+    Route::put('/posts/{post}', 'PostController@update');
+    //Delete
+    Route::delete('/posts/{post}', 'PostController@destroy');
+});
+
+
 //list
 Route::get('/posts','PostController@index');
-
+//Read
+Route::get('/posts/{post}', 'PostController@show');
 
 
 // // 文章列表首頁  view(資料夾)->posts(資料夾)->list(檔案)
