@@ -41,10 +41,10 @@
     </div>
 </div>
 
-<form id="delete-form" method="POST" action="/posts/id">
+{{-- <form id="delete-form" method="POST" action="/posts/id">
     <input type="hidden" name="_method" value="delete">
     @csrf
-</form>
+</form> Http Delete--}}
 @endsection
 
 @section('script')
@@ -53,7 +53,10 @@ let deletePost = function(id){
     let result = confirm('是否確認刪除文章?');
     if(result){
         let actionUrl = '/posts/'+id;
-        $('#delete-form').attr('action', actionUrl).submit();
+        //Ajax Delete
+        $.post(actionUrl, {_method: 'delete'}).done(function(){
+            location.reload();
+        });
     }
 };
 </script>

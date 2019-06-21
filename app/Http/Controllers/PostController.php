@@ -95,6 +95,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect('posts/admin');
+        // return redirect('posts/admin');  前端Ajax call Delete 不需重導
     }
 }
