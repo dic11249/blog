@@ -59,3 +59,7 @@ Route::get('/posts','PostController@index');
 // Route::get('/posts/{id}', function ($id) {
 //     return view('posts.show');
 // });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
