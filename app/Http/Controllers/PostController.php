@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function admin()
     {
-        $posts = Post::all();
+        $posts = Post::where('user_id', Auth::id())->get();
         return view('posts.admin', ['posts' => $posts]);
     }
 
