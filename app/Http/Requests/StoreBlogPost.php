@@ -15,6 +15,9 @@ class StoreBlogPost extends FormRequest
     public function authorize()
     {
         $post = request()->post;
+        if(!isset($post))
+            return true;
+
         if($post->user_id === Auth::id())
             return true;
         else
