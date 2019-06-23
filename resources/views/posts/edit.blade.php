@@ -25,7 +25,9 @@
 <div class="page-content">
     <div class="container">
 
-        @if ($errors->any())
+        @include('posts._form')
+
+        {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $key => $error)
@@ -33,13 +35,13 @@
                 @endforeach
             </ul>
         </div>
-        @endif
+        @endif --}}
 
-        <form method="post" action="/posts/{{ $post->id }}">
+        {{-- <form method="post" action="/posts/{{ $post->id }}">
             @csrf
-            <input type="hidden" name="_method" value="put">
+            <input type="hidden" name="_method" value="put"> --}}
             {{-- <input type="hidden" name="id" value="{{ $post->id }}">  id可直接放置aciton--}}
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="exampleInputEmail1">Title</label>
             <input type="text" class="form-control" name="title" value="{{ $post->title }}">
             </div>
@@ -49,7 +51,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="button" class="btn btn-default" onclick="window.history.back()">Cancel</button>
-        </form>
+        </form> --}}
     </div>
 </div>
 @endsection
