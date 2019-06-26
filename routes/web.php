@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/posts/{post}', 'PostController@update');
     //Delete
     Route::delete('/posts/{post}', 'PostController@destroy');
+
+    Route::resource('categories', 'CategoryController')->except(['show']);
 });
 
 
