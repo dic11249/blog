@@ -49234,6 +49234,20 @@ document.deletePost = function (id) {
   }
 };
 
+document.deleteCategory = function (id) {
+  var result = confirm('是否確認刪除分類?');
+
+  if (result) {
+    var actionUrl = '/categories/' + id; //Ajax Delete
+
+    $.post(actionUrl, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/categories';
+    });
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
