@@ -6,6 +6,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreBlogPost;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -34,7 +35,8 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post;
-        return view('posts.create',['post' => $post]);
+        $categories = Category::all();
+        return view('posts.create',['post' => $post, 'categories' => $categories]);
     }
 
     /**
@@ -75,7 +77,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('/posts.edit', ['post' => $post]);
+        $categories = Category::all();
+        return view('/posts.edit', ['post' => $post, 'categories'=>$categories]);
     }
 
     /**
