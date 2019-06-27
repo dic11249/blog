@@ -35,7 +35,7 @@
 
                     <span class="float-right">
                         <a href="/categories/{{ $category->id }}/edit" class="btn btn-primary">Edit</a>
-                        <button class="btn btn-danger" onclick="deleteCatrgory({{ $category->id }})">Delete</button>
+                        <button class="btn btn-danger" onclick="deleteCategory({{ $category->id }})">Delete</button>
                     </span>
                 </li>
             @endforeach
