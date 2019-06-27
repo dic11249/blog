@@ -31,7 +31,11 @@
                 <li class="list-group-item clearfix">
                     <div class="float-left">
                         <div class="title">{{ $post->title }}</div>
-                        <small class="author">{{ $post->user->name }}</small>
+                        @if (isset($post->category))
+                           <small class="d-block text-muted"><strong>分類：</strong>{{$post->category->name}}</small>
+                        @endif
+
+                       <small class="author"><strong>作者：</strong>{{ $post->user->name }}</small>
                     </div>
 
                     <span class="float-right">

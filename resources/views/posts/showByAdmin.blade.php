@@ -24,8 +24,11 @@
 @section('content')
 <div class="page-content">
     <div class="container">
-        <h1 class="mb-0">{{ $post->title }}</h1>
-        <small class="author">{{ $post->user->name }}</small>
+        <h1 class="mb-2">{{ $post->title }}</h1>
+        @if (isset($post->category))
+            <small class="d-block text-muted"><strong>分類：</strong>{{$post->category->name}}</small>
+        @endif
+        <small class="author"><strong>作者：</strong>{{ $post->user->name }}</small>
 
         <div class="toolbox text-left mt-3">
             <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
