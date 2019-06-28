@@ -49248,6 +49248,20 @@ document.deleteCategory = function (id) {
   }
 };
 
+document.deleteTag = function (id) {
+  var result = confirm('是否確認刪除標籤?');
+
+  if (result) {
+    var actionUrl = '/tags/' + id; //Ajax Delete
+
+    $.post(actionUrl, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/tags';
+    });
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

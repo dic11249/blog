@@ -63,3 +63,16 @@ document.deleteCategory = function (id) {
         });
     }
 };
+
+document.deleteTag = function (id) {
+    let result = confirm('是否確認刪除標籤?');
+    if (result) {
+        let actionUrl = '/tags/' + id;
+        //Ajax Delete
+        $.post(actionUrl, {
+            _method: 'delete'
+        }).done(function () {
+            location.href = '/tags';
+        });
+    }
+};
