@@ -33,6 +33,10 @@
          </select>
      </div>
      <div class="form-group">
+         <label>Tags</label>
+         <input type="text" class="form-control" name="tags" value="">
+     </div>
+     <div class="form-group">
          <label>Content</label>
          <textarea name="content" class="form-control" cols="30" rows="10">{{ $post->content }}</textarea>
      </div>
