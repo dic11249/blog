@@ -38,8 +38,8 @@
                     <!--classic image post-->
                     <div class="blog-classic">
                         <div class="date">
-                            24
-                            <span>MAR 2015</span>
+                            {{ $post->created_at->day }}
+                            <span>{{ strtoupper($post->created_at->shortEnglishMonth) }} {{ $post->created_at->year }}</span>
                         </div>
                         <div class="blog-post">
                             <div class="full-width">
@@ -50,9 +50,13 @@
                             <ul class="post-meta">
                                 <li><i class="fa fa-user"></i>posted by <a href="#">{{ $post->user->name }}</a>
                                 </li>
-                                <li><i class="fa fa-folder-open"></i> <a href="#">lifestyle</a>, <a href="#">travel</a>,
-                                    <a href="#">fashion</a>
-                                </li>
+                                @if ($post->category)
+                                    <li>
+                                        <i class="fa fa-folder-open"></i>
+                                        <a href="/posts/category/{{ $post->category_id }}">{{ $post->category->name }}</a>
+                                    </li>
+                                @endif
+
                                 <li><i class="fa fa-comments"></i> <a href="#">4 comments</a>
                                 </li>
                             </ul>
