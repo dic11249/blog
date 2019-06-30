@@ -26,8 +26,9 @@
     <div class="container">
         <h1 class="mb-2">{{ $post->title }}</h1>
         @if (isset($post->category))
-            <small class="d-block text-muted"><strong>分類：</strong>{{$post->category->name}}</small>
+            <small class="d-block text-muted"><strong>分類：</strong>{{ $post->category->name }}</small>
         @endif
+        <small class="d-block text-muted"><strong>標籤：</strong>{{ $post->tagsString() }}</small>
         <small class="author"><strong>作者：</strong>{{ $post->user->name }}</small>
 
         <div class="toolbox text-left mt-3">
