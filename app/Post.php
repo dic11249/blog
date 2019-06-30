@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Post extends Model
 {
     protected $fillable = ['title', 'content', 'category_id'];
@@ -21,5 +20,16 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany('App\Tag');
+    }
+
+    public function tagsString()
+    {
+        $tagsName = [];
+        foreach ($this->tags as $key => $tag) {
+            $tagsName[] = $tag->name;
+        }
+        $tagsString = implode(',', $tagsName);
+
+        return $tagsString;
     }
 }
