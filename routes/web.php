@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
     //Create
     Route::post('/posts', 'PostController@store');
     //show
-    Route::get('posts/show/{post}', 'PostController@show');
+    Route::get('posts/show/{post}', 'PostController@showByAdmin');
     //Update
     Route::put('/posts/{post}', 'PostController@update');
     //Delete
