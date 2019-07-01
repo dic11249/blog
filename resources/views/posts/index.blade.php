@@ -11,6 +11,9 @@
                     @if (request()->category)
                         / {{ request()->category->name }}
                     @endif
+                    @if (request()->tag)
+                        # {{ request()->tag->name }}
+                    @endif
                 </h4>
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a>
@@ -31,7 +34,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                @if (request()->category)
+                @if (count($posts)==0)
                 <h1>目前尚無文章</h1>
                 @endif
                 @foreach ($posts as $key => $post)

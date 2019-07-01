@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Log;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,15 +26,19 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        $categories = Category::all();
-        return view('posts.index',['posts' => $posts ,'categories' => $categories]);
+        return view('posts.index',['posts' => $posts]);
     }
 
     public function indexWithCategory(Category $category)
     {
         $posts = Post::where('category_id', $category->id)->get();
-        $categories = Category::all();
-        return view('posts.index', ['posts' => $posts, 'categories' => $categories]);
+        return view('posts.index', ['posts' => $posts]);
+    }
+
+    public function indexWithTag(Tag $tag)
+    {
+        $posts = $tag->posts;
+        return view('posts.index', ['posts' => $posts]);
     }
 
     /**

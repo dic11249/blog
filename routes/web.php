@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/posts','PostController@index');
 //list with category
 Route::get('/posts/category/{category}', 'PostController@indexWithCategory');
+//list with tag
+Route::get('/posts/tag/{tag}', 'PostController@indexWithTag');
 //Read
 Route::get('/posts/{post}', 'PostController@show');
 
