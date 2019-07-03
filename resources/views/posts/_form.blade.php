@@ -14,7 +14,7 @@
  </div>
  @endif
 
- <form method="post" action="{{ $actionUrl }}">
+ <form method="post" action="{{ $actionUrl }}" enctype="multipart/form-data">
      @csrf
      @if (!$isCreate)
         <input type="hidden" name="_method" value="put">
@@ -22,6 +22,13 @@
      <div class="form-group">
          <label>Title</label>
          <input type="text" class="form-control" name="title" value="{{ $post->title }}">
+     </div>
+     <div class="form-group">
+         <label>Thumbnail</label>
+         <div class="custom-file">
+             <input type="file" class="custom-file-input" name="thumbnail">
+             <label class="custom-file-label" for="customFile">Choose file</label>
+         </div>
      </div>
      <div class="form-group">
          <label>Category</label>
