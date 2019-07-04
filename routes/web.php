@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('tags', 'TagController')->only(['index', 'destroy']);
 });
 
+Route::resource('comments', 'CommentController')->only(['store', 'update', 'destroy']);
 
 //list
 Route::get('/posts','PostController@index');
