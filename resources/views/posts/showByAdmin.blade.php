@@ -38,7 +38,7 @@
         @if (!$post->thumbnail)
             <div class="text-danger">no thumbnail</div>
         @else
-            <img src="{{ $post->thumbnail }}" alt="thumbnail">
+            <img width="320" src="{{ $post->thumbnail }}" alt="thumbnail">
         @endif
         <div class="content">
             {{ $post->content }}
