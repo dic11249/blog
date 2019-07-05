@@ -59,10 +59,15 @@ $('form.update-comment').submit(function(e){
     e.preventDefault();
 
     let comment = $(e.currentTarget).find('[name="comment"]').val();
+    let post_id = $(e.currentTarget).find('[name="post_id"]').val();
+    let name = $(e.currentTarget).find('[name="name"]').val();
 
     $.post($(e.currentTarget).attr('action'), {
         _method: 'put',
+        post_id: post_id,
+        name: name,
         comment: comment,
+
     }).done(function(data){
         $(e.currentTarget).closest('.comment-body').toggleClass('edit');
         $(e.currentTarget).siblings('p').html(comment);

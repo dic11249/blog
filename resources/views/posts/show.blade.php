@@ -136,8 +136,12 @@
                                         <div class="comment-info">
                                             <div class="comment-author">
                                                 <a href="#">{{ $comment->name }}</a>
-                                                <div class="btn btn-default" onclick="toggleCommentForm(event)">Edit</div>
-                                                <div class="btn btn-default" onclick="deleteComment(event)" data-action="/comments/{{ $comment->id }}">Delete</div>
+                                                @if ($comment->user && $comment->user->id==Auth::id())
+                                                    <div class="btn btn-default" onclick="toggleCommentForm(event)">Edit
+                                                    </div>
+                                                    <div class="btn btn-default" onclick="deleteComment(event)"
+                                                        data-action="/comments/{{ $comment->id }}">Delete</div>
+                                                @endif
                                             </div>
                                             {{ $comment->created_at->format('F d, Y, G:i') }}
                                             <a href="#"><i class="fa fa-comment-o"></i>Reply</a>
@@ -147,6 +151,8 @@
                                                 {{ $comment->comment }}
                                             </p>
                                             <form class="update-comment" action="/comments/{{ $comment->id }}" method="post">
+                                                <input type="hidden" name="name" value="{{ $comment->name }}">
+                                                <input type="hidden" name="post_id" value="{{ $comment->post->id }}">
                                                 <input type="text" name="comment" value="{{ $comment->comment }}">
                                                 <button>update</button>
                                             </form>
