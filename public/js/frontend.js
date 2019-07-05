@@ -12850,6 +12850,21 @@ $.ajaxSetup({
 toggleCommentForm = function toggleCommentForm(e) {
   $(e.currentTarget).closest('.comment-info').siblings('.comment-body').toggleClass('edit');
 };
+
+deleteComment = function deleteComment(e) {
+  var result = confirm('確認要刪除留言?');
+  var action = $(e.currentTarget).data('action');
+  var comment = $(e.currentTarget).closest('.media');
+
+  if (result) {
+    $.post(action, {
+      _method: 'delete'
+    }).done(function (date) {
+      comment.remove();
+    });
+  }
+};
+
 $('form.update-comment').submit(function (e) {
   e.preventDefault();
   var comment = $(e.currentTarget).find('[name="comment"]').val();

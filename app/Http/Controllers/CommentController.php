@@ -38,7 +38,6 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
         $comment->fill($request->all());
         $comment->save();
     }
@@ -51,6 +50,6 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
     }
 }

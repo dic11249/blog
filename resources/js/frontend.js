@@ -41,6 +41,20 @@ $.ajaxSetup({
 toggleCommentForm = function(e){
     $(e.currentTarget).closest('.comment-info').siblings('.comment-body').toggleClass('edit');
 }
+
+deleteComment = function(e) {
+    let result = confirm('確認要刪除留言?');
+    let action = $(e.currentTarget).data('action');
+    let comment = $(e.currentTarget).closest('.media');
+    if(result) {
+        $.post(action,{
+            _method:'delete',
+        }).done(function(date){
+            comment.remove();
+        });
+    }
+}
+
 $('form.update-comment').submit(function(e){
     e.preventDefault();
 
