@@ -136,14 +136,21 @@
                                         <div class="comment-info">
                                             <div class="comment-author">
                                                 <a href="#">{{ $comment->name }}</a>
+                                                <div class="btn btn-default" onclick="toggleCommentForm(event)">Edit</div>
                                             </div>
                                             {{ $comment->created_at->format('F d, Y, G:i') }}
                                             <a href="#"><i class="fa fa-comment-o"></i>Reply</a>
                                         </div>
+                                        <div class="comment-body">
+                                            <p>
+                                                {{ $comment->comment }}
+                                            </p>
+                                            <form class="update-comment" action="/comments/{{ $comment->id }}" method="post">
+                                                <input type="text" name="comment" value="{{ $comment->comment }}">
+                                                <button>update</button>
+                                            </form>
+                                        </div>
 
-                                        <p>
-                                            {{ $comment->comment }}
-                                        </p>
 
                                     </div>
 

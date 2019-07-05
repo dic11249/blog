@@ -8,4 +8,17 @@
 // @import '~bootstrap/scss/bootstrap';
 // 上方為laravel預設css 與套版css衝突 故先註解
 
+.comment-body{
+    form {
+        display: none;
+    }
 
+    &.edit {
+        form {
+            display: block;
+        }
+        p {
+            display: none;
+        }
+    }
+}
